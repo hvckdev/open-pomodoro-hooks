@@ -1,0 +1,7 @@
+#!/bin/bash
+
+duration="$1"
+
+terminal-notifier -message "timer started" -title "🍅" -ignoreDnD
+sleep $((duration * 60))
+terminal-notifier -message "now, you have to take a break!" -title "🍅" -sound default -ignoreDnD

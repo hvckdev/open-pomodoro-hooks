@@ -1,0 +1,12 @@
+#!/bin/bash
+
+current_file="$HOME/.pomodoro/current"
+duration=$(grep -o 'duration=[0-9]*' "$current_file" | cut -d'=' -f2)
+
+if [ -z "$duration" ]; then
+  echo "Не удалось извлечь длительность из файла $current_file"
+  exit 1
+fi
+
+./break-alert "$duration" &
+disown
